@@ -56,3 +56,5 @@ var createTaskEl = function(taskDataObj) {
 };
 // replace this buttonEl.addEventListener("click", taskFormHandler);
 formEl.addEventListener("submit", taskFormHandler);
+//Adding new info to reset feature
+
