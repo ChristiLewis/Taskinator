@@ -15,6 +15,9 @@
 //Add to generate unique ids for every input
 var taskIdCounter = 0;
 
+//Add dynamic content to the main parent for events
+var pageContentEl = document.querySelector("#page-content");
+
 var formEl = document.querySelector("#task-form");
 
 var tasksToDoEl = document.querySelector("#tasks-to-do");
@@ -111,4 +114,19 @@ return actionContainerEl;
 // replace this buttonEl.addEventListener("click", taskFormHandler);
 formEl.addEventListener("submit", taskFormHandler);
 //Adding new info to reset feature
+
+//identify the function before using it with an event
+var taskButtonHandler = function(event) {
+    console.log(event.target);
+
+    //add target to delete button
+    if (event.target.matches(".delete-btn")) {
+        // get the element's task id
+        var taskId = event.target.getAttribute("data-task-id");
+        //console.log("you clicked a delete button!");
+        console.log(taskId);
+    }
+  };
+//add main element eventlisteners for dynamic child behavior
+pageContentEl.addEventListener("click", taskButtonHandler);
 
