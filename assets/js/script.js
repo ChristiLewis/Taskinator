@@ -117,16 +117,25 @@ formEl.addEventListener("submit", taskFormHandler);
 
 //identify the function before using it with an event
 var taskButtonHandler = function(event) {
-    console.log(event.target);
+    //console.log(event.target);
 
     //add target to delete button
     if (event.target.matches(".delete-btn")) {
         // get the element's task id
         var taskId = event.target.getAttribute("data-task-id");
         //console.log("you clicked a delete button!");
-        console.log(taskId);
+        //console.log(taskId);
+        deleteTask(taskId);
     }
-  };
+};
+
+//New function with taskId as an argument/parameter
+var deleteTask = function(taskId) {
+    var taskSelected = document.querySelector(".task-item[data-task-id='" + taskId + "']");
+    //console.log(taskId);
+    taskSelected.remove();
+};
+
 //add main element eventlisteners for dynamic child behavior
 pageContentEl.addEventListener("click", taskButtonHandler);
 
